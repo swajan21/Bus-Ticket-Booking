@@ -1,28 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './components/Home/Home';
 
-
 function App() {
-
   return (
-    <>
-      <Router>
-        <div className='w-full min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-300 flex flex-col overflow-hidden'>
-          {/* Navbar */}
-          <Navbar />
+    <Router>
+      <div className="w-full min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-300 flex flex-col overflow-hidden">
+        <Navbar />
 
-          {/* Home Content */}
-          <Home />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
 
-          {/* Footer */}
-          <Footer />
-        </div>
-      </Router>
-    </>
-  )
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
